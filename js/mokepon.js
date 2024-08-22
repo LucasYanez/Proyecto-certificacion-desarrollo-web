@@ -13,6 +13,7 @@ const spanVidasJugador = document.getElementById('vidas-jugador')
 const spanVidasEnemigo = document.getElementById('vidas-enemigo')
 
 const sectionMensajes = document.getElementById('resultado')
+const resultadoParcial = document.getElementById('resultado-parcial')
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 const contenedorTarjetas = document.getElementById('contenedorTarjetas')
@@ -93,17 +94,17 @@ class Mokepon {
     }
 }
 
-let hipodoge = new Mokepon('Hipodoge', './assets/agumon_still.png', 5, './assets/agumon.png')
+let hipodoge = new Mokepon('Agumon', './assets/agumon_still.png', 5, './assets/agumon.png')
 
-let capipepo = new Mokepon('Capipepo', './assets/veemon_still.png', 5, './assets/veemon.png')
+let capipepo = new Mokepon('Veemon', './assets/veemon_still.png', 5, './assets/veemon.png')
 
-let ratigueya = new Mokepon('Ratigueya', './assets/guilmon_still.png', 5, './assets/guilmon.png')
+let ratigueya = new Mokepon('Guilmon', './assets/guilmon_still.png', 5, './assets/guilmon.png')
 
-let hipodogeEnemigo = new Mokepon('Hipodoge', './assets/devilmon.png', 5, './assets/devilmon.png')
+let hipodogeEnemigo = new Mokepon('Devilmon', './assets/devilmon.png', 5, './assets/devilmon.png')
 
-let capipepoEnemigo = new Mokepon('Capipepo', './assets/ogremon.png', 5, './assets/ogremon.png')
+let capipepoEnemigo = new Mokepon('Ogremon', './assets/ogremon.png', 5, './assets/ogremon.png')
 
-let ratigueyaEnemigo = new Mokepon('Ratigueya', './assets/etemon.png', 5, './assets/etemon.png')
+let ratigueyaEnemigo = new Mokepon('Etemon', './assets/etemon.png', 5, './assets/etemon.png')
 
 hipodoge.ataques.push(
     { nombre: '💧', id: 'boton-agua' },
@@ -172,12 +173,12 @@ function iniciarJuego() {
         `
     contenedorTarjetas.innerHTML += opcionDeMokepones
 
-     inputHipodoge = document.getElementById('Hipodoge')
-     inputCapipepo = document.getElementById('Capipepo')
-     inputRatigueya = document.getElementById('Ratigueya')
-     fotoAgumon = document.getElementById('Hipodoge-foto')
-     fotoVeemon = document.getElementById('Capipepo-foto')
-     fotoGuilmon = document.getElementById('Ratigueya-foto')
+     inputHipodoge = document.getElementById(hipodoge.nombre)
+     inputCapipepo = document.getElementById(capipepo.nombre)
+     inputRatigueya = document.getElementById(ratigueya.nombre)
+     fotoAgumon = document.getElementById(hipodoge.nombre+'-foto')
+     fotoVeemon = document.getElementById(capipepo.nombre+'-foto')
+     fotoGuilmon = document.getElementById(ratigueya.nombre+'-foto')
 
     })
     
@@ -363,16 +364,27 @@ function revisarVidas() {
 
 function crearMensaje(resultado) {
     
-    
+    let nuevoResultadoParcial = document.createElement('p')
     let nuevoAtaqueDelJugador = document.createElement('p')
     let nuevoAtaqueDelEnemigo = document.createElement('p')
 
     sectionMensajes.innerHTML = resultado
     nuevoAtaqueDelJugador.innerHTML = indexAtaqueJugador
     nuevoAtaqueDelEnemigo.innerHTML = indexAtaqueEnemigo
+    nuevoResultadoParcial.innerHTML = traducirAEmoji(resultado)
 
+    resultadoParcial.appendChild(nuevoResultadoParcial)
     ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
     ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
+}
+
+function traducirAEmoji(resultado){
+    switch(resultado){
+        case "EMPATE": return '➖'; break;
+        case "GANASTE": return '✔'; break;
+        case "PERDISTE": return '❌'; break;
+        default: return resultado; break;
+        }
 }
 
 function crearMensajeFinal(resultadoFinal) {

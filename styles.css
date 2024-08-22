@@ -7,7 +7,7 @@ body {
 }
 
 
-#imagen-titulo{
+.imagen-titulo{
   
   height:150px;
 }
@@ -15,7 +15,7 @@ body {
 #escenario{
   position:fixed;
   width:100%;
-  height: 60vw;
+  height: 60rem;
   z-index: -3;
 }
 
@@ -26,20 +26,22 @@ body {
   align-items: center;
 }
 
+
 .titulo {
   color: white;
   font-size: 32px;
   font-family: 'Fredoka One', cursive;
 }
+  
 
 .subtitulo {
   color: white;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .tarjetas, .tarjetas-ataques {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   
 }
 
@@ -56,7 +58,7 @@ body {
   color: white;
 }
 
-#Capipepo-foto {
+#Veemon-foto {
   max-height: 95px;
 }
 
@@ -72,7 +74,7 @@ body {
   width: 180px;
   height: 40px;
   border-radius: 20px;
-  background: transparent;
+  background: #11468F;
   border: 2px solid white;
   color: white;
   font-family: 'Poppins', sans-serif;
@@ -127,7 +129,7 @@ input:checked + label {
 
 .ataques {
   display: grid;
-  grid-template-columns: 100px 100px;
+  grid-template-columns: 100px 100px 100px;
   color: white;
 }
 
@@ -136,11 +138,22 @@ input:checked + label {
   margin-bottom: 0;
 }
 
-.ataques-jugador, .ataques-enemigo {
+#espacio-vacio-1{
+  font-size: 32px;
+  margin-bottom: 0;
+  color:#041562;
+}
+
+#espacio-vacio-2{
+  color:#041562;
+}
+
+.ataques-jugador, .ataques-enemigo, .resultados-parciales {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 
 #ver-mapa {
   flex-direction: column;
@@ -176,7 +189,7 @@ input:checked + label {
 
 #animacion-ataque{
   position: absolute;
-  left: 600px;
+  left:44vw;
   top: 125px;
   animation-name:ataque;
   animation-duration: 1s;
