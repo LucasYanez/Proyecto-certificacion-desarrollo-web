@@ -173,14 +173,15 @@ input:checked + label {
 }
 
 #boton-arriba{
-  margin: 50px 10px 0 !important;
+  margin: 80px 10px 0 !important;
 }
 
 #marco-mapa{
   position: absolute;
-  z-index: -2;
-  width: 565px;
-  top: -35px;
+    z-index: -2;
+    width: 890px;
+    top: -123px;
+    height: 1050px;
 }
 
 #pelea-digimon {
