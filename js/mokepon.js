@@ -416,6 +416,14 @@ function pintarCanvas() {
         mapa.width,
         mapa.height
     )
+    /*
+    lienzo.drawImage(
+        "./assets/gameboy.png",
+        0,
+        0,
+        mapa.width*2,
+        mapa.height*2
+    )*/
     mascotaJugadorObjeto.pintarMokepon()
     hipodogeEnemigo.pintarMokepon()
     capipepoEnemigo.pintarMokepon()
